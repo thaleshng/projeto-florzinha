@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: #09090B;
+}
+
+main section {
+    display: none !important;
+}
+
+main section.visible {
+    display: flex !important;
+}
+
+main .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background-image: url("../assets/images/flower-background.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+    main .hero {
+        background-image: url("../assets/images/flower-background-mobile.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+main .hero button {
+    padding: 20px 40px;
+    font-size: 24px;
+    color: #fff;
+    background-color: #FF69B4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    animation: pulse 2s infinite;
+}
+
+main .hero button:hover {
+    background-color: #FF1493;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 1),
+                0 0 50px rgba(255, 20, 147, 0.9),
+                0 0 75px rgba(255, 20, 147, 0.6);
+}
+
+main .video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main .video video {
+    height: 96vh;        /* antes 90vh */
+    max-height: 96vh;
+    width: auto;
+    max-width: 98vw;
+    object-fit: cover;  /* mantém proporção sem cortar */
+    display: block;
+}
+
+@supports (height: 100dvh) {
+    main .video { min-height: 100dvh; }
+    main .video video {
+        height: 96dvh;
+        max-height: 96dvh;
+    }
+}
+
+@media (max-width: 768px) {
+    main .video {
+        background-image: url("../assets/images/flower-background-mobile.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    main .video video {
+        width: 98vw;        /* antes 95vw */
+        max-height: 92svh;  /* usa viewport “seguro” em celulares */
+        height: auto;
+    }
+}
